@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Tuppari-java by hakobera</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Tuppari-java</h1>
+          <h2>tuppari client library for Java</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/hakobera/tuppari-java/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/hakobera/tuppari-java/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/hakobera/tuppari-java" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>Tuppari Java Client Library</h1>
+
+<p>This is a client library of <a href="https://github.com/hakobera/tuppari">Tuppari</a> for Java.</p>
+
+<h2>Maven settings</h2>
+
+<h3>Repository</h3>
+
+<pre><code>&lt;repositories&gt;
+    &lt;repository&gt;
+        &lt;id&gt;tuppari-java&lt;/id&gt;
+        &lt;name&gt;tuppari-java repo&lt;/name&gt;
+        &lt;url&gt;http://hakobera.github.com/tuppari-java/releases&lt;/url&gt;
+    &lt;/repository&gt;
+&lt;/repositories&gt;
+</code></pre>
+
+<h3>Dependency</h3>
+
+<pre><code>&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;tuppari&lt;/groupId&gt;
+        &lt;artifactId&gt;tuppari-java&lt;/artifactId&gt;
+        &lt;version&gt;0.1.0&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+
+<h2>Code example</h2>
+
+<div class="highlight">
+<pre><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">tuppari</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.tuppari.TuppariChannel</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.tuppari.TuppariClient</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.net.URI</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TuppariExample</span> <span class="o">{</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Usage: java com.tuppari.example.TuppariExample [applicationId] [accessKeyId] [accessSecretKey]</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">args</span><span class="o">.</span><span class="na">length</span> <span class="o">!=</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">"Usage: java com.tuppari.example.TuppariExample [applicationId] [accessKeyId] [accessSecretKey]"</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">String</span> <span class="n">applicationId</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+        <span class="n">String</span> <span class="n">accessKeyId</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+        <span class="n">String</span> <span class="n">accessSecretKey</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+
+        <span class="n">TuppariClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TuppariClient</span><span class="o">(</span><span class="n">applicationId</span><span class="o">,</span> <span class="n">accessKeyId</span><span class="o">,</span> <span class="n">accessSecretKey</span><span class="o">);</span>
+        <span class="c1">// Run on you own cloud, specify the target URL.</span>
+        <span class="c1">// TuppariClient client = new TuppariClient(applicationId, accessKeyId, accessSecretKey, URI.create("http://localhost:5100"));</span>
+        <span class="n">TuppariChannel</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="s">"your_channel"</span><span class="o">);</span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">channel</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="s">"your_event"</span><span class="o">,</span> <span class="s">"hello"</span><span class="o">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre>
+</div>
+
+
+<h2>License</h2>
+
+<p>The MIT License</p>
+        </section>
+
+        <footer>
+          Tuppari-java is maintained by <a href="https://github.com/hakobera">hakobera</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
