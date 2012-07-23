@@ -6,7 +6,7 @@
 
     <groupId>tuppari</groupId>
     <artifactId>tuppari-java</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
     <name>Tuppari client library for Java</name>
     <url>https://github.com/hakobera/tuppari-java</url>
 
@@ -85,11 +85,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.3.2</version>
             </plugin>
         </plugins>
     </build>

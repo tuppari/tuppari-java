@@ -1,3 +1,5 @@
 target
+releases
+snapshots
 .idea
 *.iml
