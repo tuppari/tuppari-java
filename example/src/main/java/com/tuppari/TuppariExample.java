@@ -1,36 +1,3 @@
-# Tuppari Java Client Library
-
-This is a client library of [Tuppari](https://github.com/hakobera/tuppari) for Java.
-
-## Maven settings
-
-### Repository
-
-```
-<repositories>
-    <repository>
-        <id>tuppari-java</id>
-        <name>tuppari-java repo</name>
-        <url>http://hakobera.github.com/tuppari-java/releases</url>
-    </repository>
-</repositories>
-```
-
-### Dependency
-
-```
-<dependencies>
-    <dependency>
-        <groupId>tuppari</groupId>
-        <artifactId>tuppari-java</artifactId>
-        <version>0.1.0</version>
-    </dependency>
-</dependencies>
-```
-
-## Code example
-
-```java
 package com.tuppari;
 
 import com.tuppari.TuppariChannel;
@@ -63,8 +30,3 @@ public class TuppariExample {
     }
 
 }
-```
-
-## License
-
-The MIT License
