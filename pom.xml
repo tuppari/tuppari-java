@@ -4,15 +4,41 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>tuppari-client-java</groupId>
-    <artifactId>tuppari-client-java</artifactId>
+    <groupId>tuppari</groupId>
+    <artifactId>tuppari-java</artifactId>
     <version>0.1.0-SNAPSHOT</version>
+    <name>Tuppari client library for Java</name>
+    <url>https://github.com/hakobera/tuppari-java</url>
+
+    <issueManagement>
+        <url>https://github.com/hakobera/tuppari-java/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <scm>
-        <connection>scm:git:git@github.com:hakobera/tuppari-java.git</connection>
-        <url>scm:git:git@github.com:hakobera/tuppari-java.git</url>
+        <url>https://github.com/hakobera/tuppari-java</url>
+        <connection>scm:git:git//github.com/hakobera/tuppari-java.git</connection>
         <developerConnection>scm:git:git@github.com:hakobera/tuppari-java.git</developerConnection>
     </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>repo</id>
+            <url>https://github.com/hakobera/tuppari-java/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot-repo</id>
+            <url>https://github.com/hakobera/tuppari-java/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <build>
         <plugins>
@@ -28,11 +54,37 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
+                <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
-                    <encoding>UTF-8</encoding>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
