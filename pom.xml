@@ -6,7 +6,7 @@
 
     <groupId>tuppari</groupId>
     <artifactId>tuppari-java</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1-SNAPSHOT</version>
     <name>Tuppari client library for Java</name>
     <url>https://github.com/hakobera/tuppari-java</url>
 
