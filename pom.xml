@@ -6,7 +6,13 @@
 
     <groupId>tuppari-client-java</groupId>
     <artifactId>tuppari-client-java</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.0-SNAPSHOT</version>
+
+    <scm>
+        <connection>scm:git:git@github.com:hakobera/tuppari-java.git</connection>
+        <url>scm:git:git@github.com:hakobera/tuppari-java.git</url>
+        <developerConnection>scm:git:git@github.com:hakobera/tuppari-java.git</developerConnection>
+    </scm>
 
     <build>
         <plugins>
@@ -15,9 +21,23 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.5.1</version>
                 <configuration>
+                    <encoding>UTF-8</encoding>
                     <source>1.6</source>
                     <target>1.6</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.3.2</version>
             </plugin>
         </plugins>
     </build>
